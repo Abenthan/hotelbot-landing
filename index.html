@@ -999,7 +999,7 @@ async function getBotReply() {
       })
     });
     const data = await res.json();
-    const reply = data.content?.[0]?.text || '¿En qué más puedo ayudarte? 😊';
+    const reply = data.choices?.[0]?.message?.content || '¿En qué más puedo ayudarte? 😊';
     await new Promise(r=>setTimeout(r, delay));
     removeTyping();
     addMsg(reply, 'in');

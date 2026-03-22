@@ -1,9 +1,11 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const OpenAI = require('openai');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 app.use(cors());
 app.use(express.json());
@@ -16,33 +18,21 @@ app.post('/api/chat', async (req, res) => {
     return res.status(400).json({ error: 'messages requerido' });
   }
 
+  const openaiMessages = system
+    ? [{ role: 'system', content: system }, ...messages]
+    : messages;
+
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'anthropic-version': '2023-06-01',
-        'x-api-key': process.env.ANTHROPIC_API_KEY,
-      },
-      body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
-        max_tokens: 400,
-        system,
-        messages,
-      }),
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-4o-mini',
+      max_tokens: 400,
+      messages: openaiMessages,
     });
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      console.error('Anthropic error:', data);
-      return res.status(response.status).json({ error: data.error?.message || 'Error de API' });
-    }
-
-    res.json(data);
+    res.json(completion);
   } catch (err) {
-    console.error('Server error:', err);
-    res.status(500).json({ error: 'Error interno del servidor' });
+    console.error('OpenAI error:', err);
+    res.status(err.status || 500).json({ error: err.message || 'Error interno del servidor' });
   }
 });
 

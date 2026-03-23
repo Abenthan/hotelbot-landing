@@ -1,0 +1,249 @@
+<!-- ── INSTRUCCIONES PARA CLAUDE CODE ──────────────────────────────────────
+Inserta esta sección completa en index.html, entre la sección #demo 
+y la sección #pricing. 
+
+Busca este comentario en index.html:
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+
+Y pega TODO el bloque de abajo ANTES de ese comentario.
+──────────────────────────────────────────────────────────────────────── -->
+
+<!-- DASHBOARD SECTION -->
+<section id="dashboard" style="background:#F5F2ED;padding:100px 24px;">
+  <div style="max-width:900px;margin:0 auto;">
+
+    <div style="text-align:center;margin-bottom:48px;">
+      <span style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0F6E56;background:rgba(37,211,102,0.1);padding:5px 14px;border-radius:100px;margin-bottom:16px;">Panel de control</span>
+      <h2 style="font-family:'Fraunces',serif;font-size:clamp(32px,4vw,52px);font-weight:900;line-height:1.1;letter-spacing:-1.5px;color:#0A0A0A;margin-bottom:16px;">Todo bajo control,<br>sin hacer nada</h2>
+      <p style="font-size:17px;color:#6B6560;line-height:1.6;max-width:480px;margin:0 auto;">Ve qué preguntan tus huéspedes, a qué hora, en qué idioma — todo en tiempo real desde tu panel.</p>
+    </div>
+
+    <!-- Dashboard card -->
+    <div style="background:white;border-radius:20px;border:1px solid #E8E3DB;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.07);">
+
+      <!-- Top bar -->
+      <div style="background:#F5F2ED;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #E8E3DB;flex-wrap:wrap;gap:10px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#075E54;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:white;">SD</div>
+          <div>
+            <div style="font-size:15px;font-weight:700;color:#0A0A0A;">Hospedaje San Diego</div>
+            <div style="font-size:12px;color:#6B6560;">Medellín · Marzo 2026</div>
+          </div>
+        </div>
+        <span style="background:#E1F5EE;color:#0F6E56;font-size:11px;font-weight:600;padding:5px 12px;border-radius:20px;">● Bot activo</span>
+      </div>
+
+      <!-- Tabs -->
+      <div style="display:flex;gap:0;border-bottom:1px solid #E8E3DB;padding:0 24px;">
+        <button class="dbtab active" onclick="dbTab('stats',this)" style="padding:12px 18px;font-size:13px;font-weight:600;cursor:pointer;border:none;background:transparent;color:#075E54;border-bottom:2px solid #25D366;margin-bottom:-1px;font-family:'DM Sans',sans-serif;">Estadísticas</button>
+        <button class="dbtab" onclick="dbTab('convs',this)" style="padding:12px 18px;font-size:13px;cursor:pointer;border:none;background:transparent;color:#6B6560;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:'DM Sans',sans-serif;">Conversaciones</button>
+        <button class="dbtab" onclick="dbTab('faq',this)" style="padding:12px 18px;font-size:13px;cursor:pointer;border:none;background:transparent;color:#6B6560;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:'DM Sans',sans-serif;">FAQ populares</button>
+        <button class="dbtab" onclick="dbTab('activity',this)" style="padding:12px 18px;font-size:13px;cursor:pointer;border:none;background:transparent;color:#6B6560;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:'DM Sans',sans-serif;">Actividad</button>
+      </div>
+
+      <!-- Panel body -->
+      <div style="padding:24px;">
+
+        <!-- STATS -->
+        <div id="dbp-stats" class="dbpanel">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:20px;">
+            <div style="background:#F5F2ED;border-radius:12px;padding:16px;">
+              <div style="font-size:11px;color:#6B6560;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">Mensajes</div>
+              <div style="font-size:26px;font-weight:700;color:#0A0A0A;line-height:1;">347</div>
+              <div style="font-size:11px;color:#25D366;margin-top:4px;">+23% este mes</div>
+            </div>
+            <div style="background:#F5F2ED;border-radius:12px;padding:16px;">
+              <div style="font-size:11px;color:#6B6560;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">Resueltos IA</div>
+              <div style="font-size:26px;font-weight:700;color:#0A0A0A;line-height:1;">91%</div>
+              <div style="font-size:11px;color:#25D366;margin-top:4px;">316 de 347</div>
+            </div>
+            <div style="background:#F5F2ED;border-radius:12px;padding:16px;">
+              <div style="font-size:11px;color:#6B6560;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">A agente</div>
+              <div style="font-size:26px;font-weight:700;color:#0A0A0A;line-height:1;">31</div>
+              <div style="font-size:11px;color:#BA7517;margin-top:4px;">9% del total</div>
+            </div>
+            <div style="background:#F5F2ED;border-radius:12px;padding:16px;">
+              <div style="font-size:11px;color:#6B6560;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">Respuesta</div>
+              <div style="font-size:26px;font-weight:700;color:#0A0A0A;line-height:1;">&lt;8s</div>
+              <div style="font-size:11px;color:#25D366;margin-top:4px;">promedio IA</div>
+            </div>
+          </div>
+          <div style="background:#F5F2ED;border-radius:12px;padding:16px;">
+            <div style="font-size:13px;font-weight:600;color:#0A0A0A;margin-bottom:14px;">Idiomas detectados</div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+              <div style="font-size:13px;color:#0A0A0A;width:80px;flex-shrink:0;">Español</div>
+              <div style="flex:1;height:8px;background:#E8E3DB;border-radius:4px;overflow:hidden;"><div style="width:72%;height:8px;background:#25D366;border-radius:4px;"></div></div>
+              <div style="font-size:12px;color:#6B6560;min-width:30px;text-align:right;">72%</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+              <div style="font-size:13px;color:#0A0A0A;width:80px;flex-shrink:0;">Inglés</div>
+              <div style="flex:1;height:8px;background:#E8E3DB;border-radius:4px;overflow:hidden;"><div style="width:21%;height:8px;background:#378ADD;border-radius:4px;"></div></div>
+              <div style="font-size:12px;color:#6B6560;min-width:30px;text-align:right;">21%</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+              <div style="font-size:13px;color:#0A0A0A;width:80px;flex-shrink:0;">Francés</div>
+              <div style="flex:1;height:8px;background:#E8E3DB;border-radius:4px;overflow:hidden;"><div style="width:5%;height:8px;background:#EF9F27;border-radius:4px;"></div></div>
+              <div style="font-size:12px;color:#6B6560;min-width:30px;text-align:right;">5%</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="font-size:13px;color:#0A0A0A;width:80px;flex-shrink:0;">Portugués</div>
+              <div style="flex:1;height:8px;background:#E8E3DB;border-radius:4px;overflow:hidden;"><div style="width:2%;height:8px;background:#D85A30;border-radius:4px;"></div></div>
+              <div style="font-size:12px;color:#6B6560;min-width:30px;text-align:right;">2%</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONVERSACIONES -->
+        <div id="dbp-convs" class="dbpanel" style="display:none;">
+          <div style="display:flex;flex-direction:column;gap:0;">
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid #E8E3DB;">
+              <div style="width:36px;height:36px;border-radius:50%;background:#E6F1FB;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#0C447C;flex-shrink:0;">JM</div>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:13px;font-weight:600;color:#0A0A0A;">James Miller</span><span style="font-size:11px;color:#6B6560;">Hace 12 min</span></div>
+                <div style="font-size:12px;color:#6B6560;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">What time is check-in? Do you have parking available?</div>
+                <span style="display:inline-block;margin-top:5px;font-size:10px;padding:2px 8px;border-radius:10px;background:#E1F5EE;color:#0F6E56;">Resuelto por IA</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid #E8E3DB;">
+              <div style="width:36px;height:36px;border-radius:50%;background:#EAF3DE;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#27500A;flex-shrink:0;">LC</div>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:13px;font-weight:600;color:#0A0A0A;">Laura Castillo</span><span style="font-size:11px;color:#6B6560;">Hace 43 min</span></div>
+                <div style="font-size:12px;color:#6B6560;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Quiero reservar para el viernes, somos 4 personas</div>
+                <span style="display:inline-block;margin-top:5px;font-size:10px;padding:2px 8px;border-radius:10px;background:#FAEEDA;color:#633806;">Escalado a agente</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid #E8E3DB;">
+              <div style="width:36px;height:36px;border-radius:50%;background:#FBEAF0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#72243E;flex-shrink:0;">AR</div>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:13px;font-weight:600;color:#0A0A0A;">Ana Rodríguez</span><span style="font-size:11px;color:#6B6560;">Hace 1h</span></div>
+                <div style="font-size:12px;color:#6B6560;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">¿Tienen cocina disponible para los huéspedes?</div>
+                <span style="display:inline-block;margin-top:5px;font-size:10px;padding:2px 8px;border-radius:10px;background:#E1F5EE;color:#0F6E56;">Resuelto por IA</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid #E8E3DB;">
+              <div style="width:36px;height:36px;border-radius:50%;background:#FAEEDA;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#633806;flex-shrink:0;">TP</div>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:13px;font-weight:600;color:#0A0A0A;">Thomas Petit</span><span style="font-size:11px;color:#6B6560;">Hace 2h</span></div>
+                <div style="font-size:12px;color:#6B6560;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Bonjour, est-ce que le wifi est gratuit?</div>
+                <span style="display:inline-block;margin-top:5px;font-size:10px;padding:2px 8px;border-radius:10px;background:#E1F5EE;color:#0F6E56;">Resuelto por IA</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 0;">
+              <div style="width:36px;height:36px;border-radius:50%;background:#E1F5EE;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#085041;flex-shrink:0;">MV</div>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:3px;"><span style="font-size:13px;font-weight:600;color:#0A0A0A;">Miguel Vargas</span><span style="font-size:11px;color:#6B6560;">Hace 3h</span></div>
+                <div style="font-size:12px;color:#6B6560;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">¿Cómo llego desde el aeropuerto al hospedaje?</div>
+                <span style="display:inline-block;margin-top:5px;font-size:10px;padding:2px 8px;border-radius:10px;background:#E1F5EE;color:#0F6E56;">Resuelto por IA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div id="dbp-faq" class="dbpanel" style="display:none;">
+          <div style="font-size:13px;font-weight:600;color:#0A0A0A;margin-bottom:16px;">Preguntas más frecuentes este mes</div>
+          <div style="display:flex;flex-direction:column;gap:0;">
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #E8E3DB;">
+              <div style="width:24px;height:24px;border-radius:50%;background:#F5F2ED;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#6B6560;flex-shrink:0;">1</div>
+              <div style="flex:1;font-size:13px;color:#0A0A0A;">¿A qué hora es el check-in?</div>
+              <div style="width:80px;height:6px;background:#E8E3DB;border-radius:3px;flex-shrink:0;"><div style="width:100%;height:6px;background:#25D366;border-radius:3px;"></div></div>
+              <div style="font-size:12px;color:#6B6560;min-width:26px;text-align:right;">68</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #E8E3DB;">
+              <div style="width:24px;height:24px;border-radius:50%;background:#F5F2ED;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#6B6560;flex-shrink:0;">2</div>
+              <div style="flex:1;font-size:13px;color:#0A0A0A;">¿Tienen parqueadero?</div>
+              <div style="width:80px;height:6px;background:#E8E3DB;border-radius:3px;flex-shrink:0;"><div style="width:78%;height:6px;background:#25D366;border-radius:3px;"></div></div>
+              <div style="font-size:12px;color:#6B6560;min-width:26px;text-align:right;">53</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #E8E3DB;">
+              <div style="width:24px;height:24px;border-radius:50%;background:#F5F2ED;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#6B6560;flex-shrink:0;">3</div>
+              <div style="flex:1;font-size:13px;color:#0A0A0A;">¿El WiFi es gratis?</div>
+              <div style="width:80px;height:6px;background:#E8E3DB;border-radius:3px;flex-shrink:0;"><div style="width:63%;height:6px;background:#25D366;border-radius:3px;"></div></div>
+              <div style="font-size:12px;color:#6B6560;min-width:26px;text-align:right;">43</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #E8E3DB;">
+              <div style="width:24px;height:24px;border-radius:50%;background:#F5F2ED;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#6B6560;flex-shrink:0;">4</div>
+              <div style="flex:1;font-size:13px;color:#0A0A0A;">¿Cómo llego desde el aeropuerto?</div>
+              <div style="width:80px;height:6px;background:#E8E3DB;border-radius:3px;flex-shrink:0;"><div style="width:54%;height:6px;background:#25D366;border-radius:3px;"></div></div>
+              <div style="font-size:12px;color:#6B6560;min-width:26px;text-align:right;">37</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #E8E3DB;">
+              <div style="width:24px;height:24px;border-radius:50%;background:#F5F2ED;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#6B6560;flex-shrink:0;">5</div>
+              <div style="flex:1;font-size:13px;color:#0A0A0A;">¿Aceptan mascotas?</div>
+              <div style="width:80px;height:6px;background:#E8E3DB;border-radius:3px;flex-shrink:0;"><div style="width:41%;height:6px;background:#25D366;border-radius:3px;"></div></div>
+              <div style="font-size:12px;color:#6B6560;min-width:26px;text-align:right;">28</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 0;">
+              <div style="width:24px;height:24px;border-radius:50%;background:#F5F2ED;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#6B6560;flex-shrink:0;">6</div>
+              <div style="flex:1;font-size:13px;color:#0A0A0A;">¿Tienen cocina para huéspedes?</div>
+              <div style="width:80px;height:6px;background:#E8E3DB;border-radius:3px;flex-shrink:0;"><div style="width:34%;height:6px;background:#25D366;border-radius:3px;"></div></div>
+              <div style="font-size:12px;color:#6B6560;min-width:26px;text-align:right;">23</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTIVIDAD -->
+        <div id="dbp-activity" class="dbpanel" style="display:none;">
+          <div style="font-size:13px;font-weight:600;color:#0A0A0A;margin-bottom:8px;">Mensajes por hora del día</div>
+          <div style="display:flex;gap:16px;margin-bottom:12px;font-size:11px;color:#6B6560;">
+            <span style="display:flex;align-items:center;gap:5px;"><span style="width:10px;height:10px;border-radius:2px;background:#25D366;display:inline-block;"></span>IA</span>
+            <span style="display:flex;align-items:center;gap:5px;"><span style="width:10px;height:10px;border-radius:2px;background:#EF9F27;display:inline-block;"></span>Agente</span>
+          </div>
+          <div style="position:relative;width:100%;height:200px;">
+            <canvas id="dbActivityChart"></canvas>
+          </div>
+          <div style="margin-top:14px;padding:12px 16px;background:#F5F2ED;border-radius:12px;">
+            <div style="font-size:11px;color:#6B6560;margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;">Pico de actividad</div>
+            <div style="font-size:14px;font-weight:600;color:#0A0A0A;">8pm – 10pm · El bot cubrió el 100% sin intervención humana</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Dashboard JS — agregar justo antes del cierre de </body> -->
+<script>
+function dbTab(id, el) {
+  document.querySelectorAll('.dbpanel').forEach(p => p.style.display = 'none');
+  document.querySelectorAll('.dbtab').forEach(t => {
+    t.style.color = '#6B6560';
+    t.style.borderBottomColor = 'transparent';
+    t.style.fontWeight = '400';
+  });
+  document.getElementById('dbp-' + id).style.display = 'block';
+  el.style.color = '#075E54';
+  el.style.borderBottomColor = '#25D366';
+  el.style.fontWeight = '600';
+  if (id === 'activity' && !window._dbChartDone) {
+    setTimeout(drawDbChart, 100);
+    window._dbChartDone = true;
+  }
+}
+
+function drawDbChart() {
+  const ctx = document.getElementById('dbActivityChart');
+  if (!ctx || !window.Chart) return;
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['6am','7','8','9','10','11','12','1pm','2','3','4','5','6','7','8','9','10','11'],
+      datasets: [
+        { label: 'IA', data: [2,3,5,8,12,10,9,11,8,6,7,9,13,16,22,19,14,6], backgroundColor: '#25D366', borderRadius: 3, stack: 's' },
+        { label: 'Agente', data: [0,0,1,2,2,1,1,2,1,0,1,1,2,2,0,0,0,0], backgroundColor: '#EF9F27', borderRadius: 3, stack: 's' }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { stacked: true, ticks: { font: { size: 10 }, color: '#888780', autoSkip: false, maxRotation: 0 }, grid: { display: false } },
+        y: { stacked: true, ticks: { font: { size: 11 }, color: '#888780' }, grid: { color: 'rgba(0,0,0,0.04)' } }
+      }
+    }
+  });
+}
+</script>
